@@ -27,7 +27,7 @@ app.post("/createUsers", async (req, res) => {
 
 app.put("/updateUser", (req, res) => {
 
-    const { id, userName, email , mobileNo } = req.body
+    const { id, userName, email, age , mobileNo } = req.body
 
     try {
         UserModel.findById(id, (err, user) => {
@@ -35,6 +35,7 @@ app.put("/updateUser", (req, res) => {
             user.name = userName
             user.email = email
             user.mobileNo = mobileNo
+            user.age = age
             user.save()
             res.send("User has been successfully updated in DB")
         })
