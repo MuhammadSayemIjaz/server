@@ -32,7 +32,7 @@ app.put("/updateUser", (req, res) => {
     try {
         UserModel.findById(id, (err, user) => {
             console.log(user)
-            user.name = userName
+            user.userName = userName
             user.email = email
             user.mobileNo = mobileNo
             user.age = age
