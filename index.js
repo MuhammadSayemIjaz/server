@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -6,7 +7,11 @@ const UserModel = require("./model/Users")
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect(process.env.DATABASE)
+const DB = process.env.DATABASE;
+mongoose.connect(DB,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(()=> console.log('connection start'))
 
 app.get("/getUsers", (request, response) => {
     UserModel.find({}, (err, result) => {
@@ -52,7 +57,7 @@ app.delete("/deleteUser/:id", async (req, res) => {
     res.send("User has been successfully deleted from DB")
 })
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || '8000'
 app.listen(PORT, () => {
     console.log(`Server is running perfectly on port ${PORT}`)
 })
