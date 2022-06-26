@@ -17,5 +17,14 @@
     "mongoose": "^6.3.5",
     "nodemon": "^2.0.16"
   },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhammadSayemIjaz/server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MuhammadSayemIjaz/server/issues"
+  },
+  "homepage": "https://github.com/MuhammadSayemIjaz/server#readme",
   "description": ""
 }
