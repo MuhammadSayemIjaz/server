@@ -6,7 +6,7 @@ const UserModel = require("./model/Users")
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect("mongodb+srv://root:root@Ecommerce.vxpakra.mongodb.net/DB_Assignment?retryWrites=true&w=majority")
+mongoose.connect(process.env.DATABASE)
 
 app.get("/getUsers", (request, response) => {
     UserModel.find({}, (err, result) => {
@@ -52,7 +52,7 @@ app.delete("/deleteUser/:id", async (req, res) => {
     res.send("User has been successfully deleted from DB")
 })
 
-const PORT = "8000"
+const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server is running perfectly on port ${PORT}`)
 })
